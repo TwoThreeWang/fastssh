@@ -1,9 +1,5 @@
 <div align="center">
-  <a href="https://github.com/shaojintian/Best_README_template/">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">FastSSH</h3>
+<h2 align="center">FastSSH</h2>
   <p align="center">
     一个简单、轻量、高效管理服务器连接的命令行利器！
     <br />
@@ -14,7 +10,7 @@
     ·
     <a href="https://github.com/TwoThreeWang/">提出新特性</a>
   </p>
-  <img src="https://cdn.wangtwothree.com/imgur/QJna1jH.png" alt="Logo" width="80" height="80">
+  <img src="https://cdn.wangtwothree.com/imgur/QJna1jH.png" alt="Logo">
 </div>
 
 
