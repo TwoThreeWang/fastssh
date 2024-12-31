@@ -34,6 +34,8 @@ Windows 执行 ./fastssh.exe
 
 程序内使用方向键选择，回车确定，Ctrl+C 退出程序
 
+![图片alt](https://cdn.wangtwothree.com/imgur/b5H0l14.png)
+
 ### Mac 设置环境变量
 
 #### 临时添加到路径
