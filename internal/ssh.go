@@ -20,7 +20,14 @@ func SshConnect(server Server) error {
 			cmd = exec.Command("bash", "-c", sshCommand)
 		}
 		// 将密码粘贴到剪贴板
-		err := copyToClipboard(server.Password)
+		// 先解密密码
+		secretKey := os.Getenv("SECRET_KEY")
+		password, err := Decrypt([]byte(secretKey), server.Password)
+		if err != nil {
+			fmt.Println("密码解密失败:", err)
+			return err
+		}
+		err = copyToClipboard(password)
 		if err != nil {
 			fmt.Printf("将密码复制到剪贴板失败: %v\n", err)
 			return err

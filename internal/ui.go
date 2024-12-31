@@ -89,6 +89,14 @@ func addNewServer(servers []Server) {
 			log.Fatalf("Prompt failed: %v", err)
 			return
 		}
+		// 保存加密后的密码
+		secretKey := os.Getenv("SECRET_KEY")
+		// 加密密码
+		newServer.Password, err = Encrypt([]byte(secretKey), newServer.Password)
+		if err != nil {
+			log.Fatalf("密码加密失败: %v", err)
+			return
+		}
 	} else {
 		newServer.LoginType = "private_key"
 		privateKeyPathPrompt := promptui.Prompt{
