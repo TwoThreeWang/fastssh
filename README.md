@@ -1,5 +1,6 @@
 <div align="center">
-<h2 align="center">FastSSH</h2>
+  <img src="https://cdn.wangtwothree.com/imgur/QJna1jH.png" alt="Logo">
+  <h1 align="center">FastSSH</h1>
   <p align="center">
     一个简单、轻量、高效管理服务器连接的命令行利器！
     <br />
@@ -10,9 +11,7 @@
     ·
     <a href="https://github.com/TwoThreeWang/">提出新特性</a>
   </p>
-  <img src="https://cdn.wangtwothree.com/imgur/QJna1jH.png" alt="Logo">
 </div>
-
 
 该命令行工具用于管理您的服务器连接信息。通过简单的命令行指令，您可以轻松地添加新的服务器连接（包括主机地址、端口、用户名等），删除不再需要的连接，并快速建立与服务器的SSH连接。无需繁琐的配置文件或图形界面操作，一切尽在命令行掌控。
 
@@ -24,7 +23,7 @@
 
 ### 上手指南
 
-1. 下载打包好的可执行文件：https://github.com/TwoThreeWang/fastssh/releases
+1. 下载打包好的可执行文件：https://github.com/TwoThreeWang/fastssh/releases/latest
 2. 将文件路径添加到环境变量（可选）
 3. 打开终端工具（如果没有添加环境变量，需要在命令行中导航到 fastssh 所在目录）
 4. 运行 FastSSH
