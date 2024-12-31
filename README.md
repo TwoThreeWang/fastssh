@@ -7,16 +7,16 @@
   <p align="center">
     一个简单、轻量、高效管理服务器连接的命令行利器！
     <br />
-    <a href="https://github.com/shaojintian/Best_README_template"><strong>探索本项目的文档 »</strong></a>
+    <a href="https://github.com/TwoThreeWang/fastssh/wiki"><strong>探索本项目的文档 »</strong></a>
     <br />
     <br />
-    <a href="`https://github.com/TwoThreeWang/fastssh/issues`">报告Bug</a>
+    <a href="https://github.com/TwoThreeWang/fastssh/issues">报告Bug</a>
     ·
     <a href="https://github.com/TwoThreeWang/">提出新特性</a>
   </p>
+  <img src="https://cdn.wangtwothree.com/imgur/QJna1jH.png" alt="Logo" width="80" height="80">
 </div>
 
-* ![Alt text](https://cdn.wangtwothree.com/imgur/QJna1jH.png)
 
 该命令行工具用于管理您的服务器连接信息。通过简单的命令行指令，您可以轻松地添加新的服务器连接（包括主机地址、端口、用户名等），删除不再需要的连接，并快速建立与服务器的SSH连接。无需繁琐的配置文件或图形界面操作，一切尽在命令行掌控。
 
