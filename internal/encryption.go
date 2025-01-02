@@ -3,12 +3,19 @@ package internal
 import (
 	"crypto/aes"
 	"crypto/cipher"
+	"crypto/md5"
 	"crypto/rand"
 	"encoding/base64"
 	"io"
 )
 
-// 加密函数
+// StringTo16ByteKey 使用 MD5 哈希算法生成 16 字节密钥
+func StringTo16ByteKey(input string) []byte {
+	hash := md5.Sum([]byte(input))
+	return hash[:]
+}
+
+// Encrypt 加密函数
 func Encrypt(key []byte, plaintext string) (string, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
@@ -26,7 +33,7 @@ func Encrypt(key []byte, plaintext string) (string, error) {
 	return base64.StdEncoding.EncodeToString(ciphertext), nil
 }
 
-// 解密函数
+// Decrypt 解密函数
 func Decrypt(key []byte, ciphertext string) (string, error) {
 	ciphertextByte, err := base64.StdEncoding.DecodeString(ciphertext)
 	if err != nil {

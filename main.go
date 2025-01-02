@@ -31,15 +31,10 @@ func getEnv() bool {
 		input = strings.TrimSpace(input)
 
 		if strings.ToLower(input) == "y" {
-		Setkey:
-			fmt.Println("请设置一个私人密钥，用于加密服务器密码，密钥位数为16位")
+			fmt.Println("请设置一个私人密钥，用于加密服务器密码")
 			keyReader := bufio.NewReader(os.Stdin)
 			keyInput, _ := keyReader.ReadString('\n')
 			keyInput = strings.TrimSpace(keyInput)
-			if len(keyInput) != 16 {
-				fmt.Println("密码位数不是16位，请重新设置！")
-				goto Setkey
-			}
 			// 创建 .env 文件并写入示例内容
 			err := os.WriteFile(envPath, []byte("SECRET_KEY="+keyInput), 0644)
 			if err != nil {

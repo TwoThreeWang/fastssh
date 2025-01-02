@@ -21,8 +21,8 @@ func SshConnect(server Server) error {
 		}
 		// 将密码粘贴到剪贴板
 		// 先解密密码
-		secretKey := os.Getenv("SECRET_KEY")
-		password, err := Decrypt([]byte(secretKey), server.Password)
+		secretKey := StringTo16ByteKey(os.Getenv("SECRET_KEY"))
+		password, err := Decrypt(secretKey, server.Password)
 		if err != nil {
 			fmt.Println("密码解密失败:", err)
 			return err

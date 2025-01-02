@@ -90,9 +90,9 @@ func addNewServer(servers []Server) {
 			return
 		}
 		// 保存加密后的密码
-		secretKey := os.Getenv("SECRET_KEY")
+		secretKey := StringTo16ByteKey(os.Getenv("SECRET_KEY"))
 		// 加密密码
-		newServer.Password, err = Encrypt([]byte(secretKey), newServer.Password)
+		newServer.Password, err = Encrypt(secretKey, newServer.Password)
 		if err != nil {
 			log.Fatalf("密码加密失败: %v", err)
 			return
@@ -256,9 +256,10 @@ func delServer(servers []Server) {
 
 func CmdUi(servers []Server) {
 	// 主菜单
+main:
 	prompt := promptui.Select{
 		Label: "选择操作",
-		Items: []string{"连接服务器", "添加新服务器", "删除服务器"},
+		Items: []string{"连接服务器", "添加新服务器", "删除服务器", "检查程序更新"},
 	}
 	_, result, err := prompt.Run()
 	if err != nil {
@@ -273,5 +274,8 @@ func CmdUi(servers []Server) {
 		addNewServer(servers)
 	case "删除服务器":
 		delServer(servers)
+	case "检查程序更新":
+		CheckUpdate()
+		goto main
 	}
 }
