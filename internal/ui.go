@@ -254,6 +254,58 @@ func delServer(servers []Server) {
 	}
 }
 
+func EncryptionTools(servers []Server) {
+ET:
+	prompt := promptui.Select{
+		Label: "选择操作",
+		Items: []string{"字符加密", "密文解密", "返回主菜单"},
+	}
+	_, result, err := prompt.Run()
+	if err != nil {
+		log.Fatalf("Prompt failed: %v", err)
+		return
+	}
+	switch result {
+	case "字符加密":
+		strPrompt := promptui.Prompt{
+			Label: "请输入要加密的字符串",
+		}
+		str, err := strPrompt.Run()
+		if err != nil {
+			log.Fatalf("Prompt failed: %v", err)
+			return
+		}
+		secretKey := StringTo16ByteKey(os.Getenv("SECRET_KEY"))
+		// 加密密码
+		newStr, err := Encrypt(secretKey, str)
+		if err != nil {
+			log.Fatalf("加密失败: %v", err)
+			return
+		}
+		fmt.Println(newStr)
+		goto ET
+	case "密文解密":
+		strPrompt := promptui.Prompt{
+			Label: "请输入要解密的密文",
+		}
+		str, err := strPrompt.Run()
+		if err != nil {
+			log.Fatalf("Prompt failed: %v", err)
+			return
+		}
+		secretKey := StringTo16ByteKey(os.Getenv("SECRET_KEY"))
+		// 加密密码
+		newStr, err := Decrypt(secretKey, str)
+		if err != nil {
+			log.Fatalf("解密失败: %v", err)
+			return
+		}
+		fmt.Println(newStr)
+		goto ET
+	case "返回主菜单":
+		CmdUi(servers)
+	}
+}
 func CmdUi(servers []Server) {
 	// 主菜单
 main:
@@ -274,6 +326,8 @@ main:
 		addNewServer(servers)
 	case "删除服务器":
 		delServer(servers)
+	case "加解密工具":
+		EncryptionTools(servers)
 	case "检查程序更新":
 		CheckUpdate()
 		goto main
